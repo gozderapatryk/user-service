@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: @project.name@
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+  web:
+    resources:
+      add-mappings: false
+
+  datasource:
+    url: jdbc:mysql://${USERSDB_CONTAINER_NAME:localhost}:${USERSDB_PORT:3306}/${USERSDB_NAME:usersdb}
+    username: ${USERSDB_USER:root}
+    password: ${USERSDB_PASSWORD:Pa$$w0rd}
+
+server:
+  port: 8100
