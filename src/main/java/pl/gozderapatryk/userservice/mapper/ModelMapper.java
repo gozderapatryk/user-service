@@ -1,5 +1,6 @@
 package pl.gozderapatryk.userservice.mapper;
 
+import pl.gozderapatryk.userservice.dto.CreateUserDto;
 import pl.gozderapatryk.userservice.dto.GetUserDto;
 import pl.gozderapatryk.userservice.model.User;
 
@@ -15,6 +16,14 @@ public interface ModelMapper {
                 .birthDate(user.getBirthDate())
                 .username(user.getUsername())
                 .email(user.getEmail())
+                .build();
+    }
+
+    static User toUser(CreateUserDto createUserDto) {
+        return Objects.isNull(createUserDto) ? null : User.builder()
+                .username(createUserDto.getUsername())
+                .email(createUserDto.getEmail())
+                .password(createUserDto.getPassword())
                 .build();
     }
 }
