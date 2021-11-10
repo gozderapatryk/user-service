@@ -3,10 +3,10 @@ package pl.gozderapatryk.userservice.model;
 import lombok.*;
 import org.hibernate.Hibernate;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.Objects;
 
-@EqualsAndHashCode(callSuper = true)
 @Getter
 @Setter
 @ToString
@@ -18,4 +18,19 @@ import java.util.Objects;
 public class User extends Person {
     private String username;
     private String email;
+    private String password;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        User user = (User) o;
+
+        return Objects.equals(getId(), user.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return 562048007;
+    }
 }
