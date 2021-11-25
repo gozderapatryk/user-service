@@ -3,8 +3,11 @@ package pl.gozderapatryk.userservice.model;
 import lombok.*;
 import org.hibernate.Hibernate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import java.util.Objects;
 
 @Getter
@@ -16,9 +19,15 @@ import java.util.Objects;
 @Entity
 @Table(name = "users")
 public class User extends Person {
+    @Column(unique = true, nullable = false)
     private String username;
+    @Email
+    @Column(unique = true, nullable = false)
     private String email;
+    @Column(nullable = false)
     private String password;
+    @Column(nullable = false)
+    private Role role;
 
     @Override
     public boolean equals(Object o) {

@@ -8,6 +8,7 @@ import pl.gozderapatryk.userservice.dto.GetUserDto;
 import pl.gozderapatryk.userservice.exceptions.UserNotFoundException;
 import pl.gozderapatryk.userservice.mapper.ModelMapper;
 import pl.gozderapatryk.userservice.repository.UserRepository;
+import pl.gozderapatryk.userservice.model.User;
 
 import javax.validation.ValidationException;
 import javax.validation.constraints.NotNull;

@@ -1,6 +1,7 @@
 package pl.gozderapatryk.userservice.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import pl.gozderapatryk.userservice.dto.CreateUserDto;
 import pl.gozderapatryk.userservice.dto.GetUserDto;
@@ -11,6 +12,7 @@ import javax.validation.Valid;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/users")
+@Validated
 public class UserController {
 
     private final UserService userService;
