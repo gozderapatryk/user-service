@@ -12,6 +12,8 @@ import pl.gozderapatryk.userservice.model.User;
 
 import javax.validation.ValidationException;
 import javax.validation.constraints.NotNull;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -39,5 +41,9 @@ public class UserService {
         createUserDto.setPassword(passwordEncoder.encode(createUserDto.getPassword()));
 
         return userRepository.save(ModelMapper.toUser(createUserDto)).getId();
+    }
+
+    public List<User> findAll() {
+        return userRepository.findAll();
     }
 }
